@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Запчасти для {{ carModel.name }} — {{ carModel.brand }}{% endblock %}
+{% block metaDescription %}Запчасти для {{ carModel.name }} — {{ carModel.brand }}{% endblock %}
+{% block metaKeywords %}Запчасти для {{ carModel.name }} — {{ carModel.brand }}{% endblock %}
+
+{% block content %}
+
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a> <span class="divider">/</span></li>
+        <li><a href="/spares/">Каталог запчастей {{ carModel.brand }}</a> <span class="divider">/</span>
+        </li>
+        <li class="active">{{ carModel.brand }} {{ carModel.name }}</li>
+    </ul>
+
+    <h1>Комплектации для {{ carModel.brand }} {{ carModel.name }}</h1>
+
+    {% if list_variants|length > 0 %}
+
+        {% include 'spares/variant.html' %}
+
+    {% else %}
+        <div class="alert alert-error">
+            <strong>Ошибка!</strong> Комплектации не найдены
+        </div>
+    {% endif %}
+
+    <h1>Автомобили {{ carModel.brand }}</h1>
+
+    {% include 'spares/models.html' with models=list_rnd_models %}
+
+{% endblock %}

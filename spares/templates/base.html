@@ -1,0 +1,293 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Запчасти BMW, автозапчасти бмв, каталог запчастей bmw, фото, тест драйв, цена,
+        характеристики, отзывы, тюнинг, купить, обои, X6 (bmv, бмв) X5 &mdash; BMW{% endblock %}</title>
+
+    <meta http-equiv="description"
+          content="{% block metaDescription %}Запчасти BMW, автозапчасти бмв, каталог запчастей bmw, фото, тест драйв, цена, характеристики, отзывы, тюнинг, купить, обои, X6 (bmv, бмв) X5{% endblock %}">
+    <meta http-equiv="keywords"
+          content="{% block metaKeywords %}Запчасти BMW, автозапчасти бмв, каталог запчастей bmw, фото, тест драйв, цена, характеристики, отзывы, тюнинг, купить, обои, X6 (bmv, бмв) X5{% endblock %}">
+
+    <meta name="google-site-verification" content="CoMEFlF9M75HIrDZ1Sr-MFii1xNbbLPm0aTZJrXJCGg"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="{{ STATIC_PREFIX }}style.css" rel="stylesheet">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_PREFIX }}holder.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+                <p class="navbar-text pull-right">
+                    Есть вопросы? Звоните: +7 (812) 730-19-32
+                </p>
+                <ul class="nav">
+                    <li><a href="/spares/">Каталог запчастей</a></li>
+                    <li><a href="/brands/">Производители</a></li>
+                    <li><a href="/news/">Новости</a></li>
+                    <li><a href="/dealers/">Дилеры</a></li>
+                    <li><a href="/photos/">Фотогалерея</a></li>
+                    <li><a href="/videos/">Видео</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <h3 class="muted"><a href="/" title="Каталог запчастей - spares-bmw.ru"><img
+                    src="{{ STATIC_PREFIX }}logo-511.gif" alt="Каталог запчастей - spares-bmw.ru" width="225"
+                    height="72"></a></h3>
+        </div>
+
+        <div class="span10 visible-desktop">
+            <div class="top-banner">
+                <a href="/spares/" class="thumbnail">
+                    <img data-src="{{ STATIC_PREFIX }}holder.js?480x60" alt="480x60">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<hr class="clearfix">
+
+<div class="container-fluid">
+    <div class="row-fluid">
+
+        <div class="span2 sidebar visible-desktop">
+
+            {% include 'news/preview.html' %}
+
+            <div class="sidebar-block photo-preview">
+                <h1>Фото</h1>
+                <ul class="thumbnails">
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-block adv-preview">
+                <h1>Реклама</h1>
+
+                <div style="width: 200px;">
+                    <a href="/spares/" class="thumbnail">
+                        <img data-src="{{ STATIC_PREFIX }}holder.js/200x200/text:Реклама" alt="">
+                    </a>
+                </div>
+
+                <div>
+                    <noindex>
+                        <script type="text/javascript"><!--
+                        google_ad_client = "pub-8928066584193499";
+                        /* 200x200, создано 22.02.10 */
+                        google_ad_slot = "7156778964";
+                        google_ad_width = 200;
+                        google_ad_height = 200;
+                        //-->
+                        </script>
+                        <script type="text/javascript"
+                                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                        </script>
+                    </noindex>
+                </div>
+            </div>
+        </div>
+
+        <div class="span8">
+            {% block content %} {% endblock %}
+        </div>
+
+        <div class="span2 sidebar visible-desktop">
+
+            {% include 'dealers/preview.html' %}
+
+            <div class="sidebar-block video-preview">
+                <h1>Видео</h1>
+                <ul class="thumbnails">
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/60x60" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-block">
+
+                <h1>Смотрите также</h1>
+
+                {% include 'spares/models_preview.html' %}
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="footer">
+    <div class="footer-icon-set pull-right">
+        <a href="/"><span class="icon-home"></span></a>
+        <a href="/search/"><span class="icon-search"></span></a>
+        <a href="/contacts/"><span class="icon-envelope"></span></a>
+    </div>
+    <div class="footer-copy">
+        &copy; 2013 <a href="http://www.spares-bmw.ru/">«Запчасти для BMW»</a> — запчасти, BMW, бмв, фото, тест
+        драйв,
+        цена, характеристики, отзывы, тюнинг, купить, обои.
+        <br/> Использование материалов сайта <a href="http://www.spares-bmw.ru/">www.spares-bmw.ru</a> возможно
+        только с
+        письменного разрешения администрации.
+        <br/> BMW является зарегистрированной торговой маркой концерна BMW.<br><br>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('ul.nav li a').each(function (i, r) {
+            r = $(r);
+            if (document.location.href.indexOf(r.attr('href')) > -1) {
+                r.parent().addClass('active');
+            }
+        })
+    });
+</script>
+
+</body>
+</html>

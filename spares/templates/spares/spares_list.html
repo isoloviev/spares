@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Запчасти для {{ carVariant.name }} — {{ carModel.brand }}{% endblock %}
+{% block metaDescription %}Запчасти для {{ carVariant.name }} — {{ carModel.brand }}{% endblock %}
+{% block metaKeywords %}Запчасти для {{ carVariant.name }} — {{ carModel.brand }}{% endblock %}
+
+{% block content %}
+
+    <link href="{{ STATIC_PREFIX }}fuelux/css/tree.css" rel="stylesheet">
+
+    <script type="text/javascript" src="{{ STATIC_PREFIX }}fuelux/require.js"></script>
+
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a> <span class="divider">/</span></li>
+        <li><a href="/spares/">Каталог запчастей {{ carModel.brand }}</a> <span class="divider">/</span>
+        </li>
+        <li><a href="{{ carModel.url }}">{{ carModel.name }}</a> <span class="divider">/</span>
+        </li>
+        <li><a href="../">{{ carVariant.name }}</a> <span class="divider">/</span>
+        </li>
+        <li class="active">{{ str.text }}</li>
+    </ul>
+
+    <h1>{{ str.text }} для {{ carVariant.name }}</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th width="25%">Производитель</th>
+            <th width="25%">Артикул</th>
+            <th width="49%">Наименование</th>
+            <th width="1%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in list_spares %}
+            <tr>
+                <td>{{ item.supBrand }}</td>
+                <td><a href="{{ item.url }}">{{ item.article }}</a></td>
+                <td>{{ item.name }}</td>
+                <td><a href="#order{{ item.id }}" class="icon icon-shopping-cart"
+                       data-toggle="modal"></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% for item in list_spares %}
+
+        <!-- Modal {{ item.id }}-->
+        <div id="order{{ item.id }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="order{{ item.id }}Label" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 id="order{{ item.id }}Label">{{ item.name }} - {{ item.article }}</h3>
+            </div>
+            <div class="modal-body">
+                <p>Всю информацию вы можете уточнить по телефону:</p>
+
+                <p class="text-center">+7 (812) 730-19-32</p>
+
+                <p>Мы предлагаем данную запасную часть добавить в заказ для дальнейшего оформления и согласнования с нашими менеджерами.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

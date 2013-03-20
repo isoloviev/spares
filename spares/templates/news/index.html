@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{%  block title %} Новости сайта {% endblock %}
+
+{% block content %}
+
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a> <span class="divider">/</span></li>
+        <li class="active">Новости</li>
+    </ul>
+
+    <h1>Новости</h1>
+    {% if list_news %}
+        {% for item in list_news %}
+            <div class="well">
+                <div class="news-block-title">{{ item.title }}</div>
+                <div class="news-block-date">{{ item.pubDate|date:'d E Y' }}</div>
+                <p>{{ item.annotation }}</p>
+                <a class="btn btn-small" href="{% url 'news-details' item.pubDate|date:'Y' item.pubDate|date:'m' item.pubDate|date:'d' item.id %}">подробнее &raquo;</a>
+            </div>
+        {% endfor %}
+
+        <div class="pagination pagination-centered">
+            <ul>
+                <li class="disabled"><span>&laquo;</span></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+
+    {% else %}
+        <p>No news are available.</p>
+    {% endif %}
+{% endblock %}

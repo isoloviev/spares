@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.name }} {{ item.supBrand }} &mdash; {{ item.article }}{% endblock %}
+
+{% block content %}
+
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a> <span class="divider">/</span></li>
+        <li><a href="/spares/">Каталог запчастей {{ carModel.brand }}</a> <span class="divider">/</span>
+        </li>
+        <li class="active">{{ item.name }} {{ item.supBrand }}</li>
+    </ul>
+
+    <h1>{{ item.name }} {{ item.supBrand }} &mdash; {{ item.article }}</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th width="25%">Производитель</th>
+            <th width="25%">Артикул</th>
+            <th width="50%">Наименование</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ item.supBrand }}</td>
+            <td>{{ item.article }}</td>
+            <td>{{ item.name }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    {% if criteries %}
+        <h2>Характеристики</h2>
+        <table class="table table-bordered">
+            <tbody>
+            {% for rec in criteries %}
+                <tr>
+                    <td width="35%">{{ rec.CRITERIA_DES_TEXT }}</td>
+                    <td>{{ rec.CRITERIA_VALUE_TEXT }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if images %}
+        <h2>Изображения</h2>
+        <ul class="thumbnails">
+            {% for rec in images %}
+                <li class="span4">
+                    <div class="thumbnail">
+                        <img src="{{ rec.PATH }}" alt="">
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if applicables %}
+        <h2>Применяемость детали в других автомобилях</h2>
+
+        {% include 'spares/variant.html' with list_variants=applicables %}
+    {% endif %}
+
+
+    <p><a href="javascript: window.history.back();" class="btn">&laquo; вернуться назад</a></p>
+
+{% endblock %}

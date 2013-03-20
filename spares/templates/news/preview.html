@@ -1,0 +1,14 @@
+<div class="sidebar-block news-preview">
+
+    <h1>Новости</h1>
+
+    <dl>
+        {% for item in display_news %}
+
+            <dt>{{ item.pubDate|date:'d E Y' }}</dt>
+            <dd><a href="{% url 'news-details' item.pubDate|date:'Y' item.pubDate|date:'m' item.pubDate|date:'d' item.id %}">{{ item.title }}</a></dd>
+
+        {% endfor %}
+    </dl>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="row-fluid">
+    {% for item in models %}
+        <div class="span4 well models-block">
+            <div class="models-image">
+                <img src="http://spares-bmw.ru/images/cars/{{ item.id }}.gif">
+            </div>
+            <div><a class="models-url" href="{{ item.url }}">{{ item.name }}</a></div>
+            <div class="muted">
+                <small>{{ item.start_man }} {% if item.end_man %}- {{ item.end_man }}{% else %} - по наст.
+                    время{% endif %}</small>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.models-block').hover(function () {
+            $(this).addClass('models-block-hover');
+        }, function() {
+            $(this).removeClass('models-block-hover');
+        });
+        $('.models-block').click(function() {
+            document.location.href = $(this).find('.models-url').attr('href');
+        });
+    });
+</script>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Каталог запчастей для {{ brand }} — {{ brand }}{% endblock %}
+
+{% block content %}
+
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a> <span class="divider">/</span></li>
+        <li class="active">Каталог запчастей</li>
+    </ul>
+
+    {% for it in list_models %}
+
+        {% if it.1.0 %}
+
+            <h1 class="blue-title">{{ it.1.0.brand }} серия {{ it.0 }}</h1>
+
+            {% include 'spares/models.html' with models=it.1 %}
+
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}

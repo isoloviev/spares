@@ -1,0 +1,41 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th width="1%"></th>
+        <th width="30%">Модель</th>
+        <th width="20%">Год выпуска</th>
+        <th width="15%">Кузов</th>
+        <th width="15%">Объем</th>
+        <th width="15%">Мощность</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in list_variants %}
+        <tr>
+            <td><a href="#variantInfo{{ item.id }}" class="icon icon-info-sign"
+                   data-toggle="modal"></a></td>
+            <td><a href="{% url 'applies-list' item.model_name_url item.id %}">{{ item.name }}</a></td>
+            <td>{{ item.man_dates }}</td>
+            <td>{{ item.body }}</td>
+            <td style="text-align: right;">{{ item.volume }} см<sup>3</sup> / {{ item.litres }} л.</td>
+            <td style="text-align: right;">{{ item.hp }} л.с. / {{ item.kw }} кВт</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% for item in list_variants %}
+    <!-- Modal {{ item.id }}-->
+    <div id="variantInfo{{ item.id }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="variantInfo{{ item.id }}Label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="variantInfo{{ item.id }}Label">Информация об автомобиле</h3>
+        </div>
+        <div class="modal-body">
+            {% include "spares/variant_info.html" %}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+        </div>
+    </div>
+{% endfor %}
